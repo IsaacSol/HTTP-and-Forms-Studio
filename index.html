@@ -6,14 +6,51 @@
 		// TODO: create a handler
     window.addEventListener("load", function(){
         // TODO: register the handler
+		let form = document.getElementById("searchForm");
+		
+		function setSearchEngine(event){
+			
+			let engine = document.querySelector("input[name=engine]:checked");
+			let myQuery = document.querySelector("input[name=q]")
+			// console.log(":"+myQuery.value+":")
+			if (myQuery.value === "") {
+				alert("Please enter query.")
+				event.preventDefault();
+			} else {
+				// console.log("Test" + engine.value);
+				let actions = {
+					"google": "https://www.google.com",
+					"duckDuckGo": "https://duckduckgo.com/",
+					"bing": "https://www.bing.com/search",
+					"ask": "https://www.ask.com/web"
+				}
+				if (engine === null) {
+					alert("Please enter a search term.")
+					event.preventDefault();
+				} else {
+					action = actions[engine.value];
+					console.log("test2"+action)
+					form.setAttribute("action", action)
+				}
+			}
+		}
+		form.addEventListener("submit", setSearchEngine);
     });
 	</script>
+	<link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
 	<form id="searchForm">
     <!-- TODO: add form elements -->
+		<label><input type="text" name="q"></label>
+		<label id="google">Google<image id="googleImage" src="images\google_icon.png" height="25px"></image> <input type="radio" name="engine" value="google" url="	https://www.google.com/search"></label>
+		<label id="duckDuckGo">DuckDuckGo<image id="duckDuckGoImage" src="images\duckduckgo-icon.png" height="25px"></image><input type="radio" name="engine" value="duckDuckGo"></label>
+		<label id="bing">Bing<image id="bingImage" src="images\bing-icon.png" height="25px"></image><input type="radio" name="engine" value="bing"></label>
+		<label id="ask">Ask<image id="askImage" src="images\ask-icon.png" height="25px"></image><input type="radio" name="engine" value="ask"></label>
+		<label><input type="submit" value="Go!"></label>
+		<!-- <button>Go!</button> -->
 	</form>
 
 </body>

@@ -1,0 +1,35 @@
+#duckDuckGo {
+    color: grey;
+}
+#duckDuckGoImage {
+    position: relative;
+    top:5px;
+}
+#google {
+    color: blue;
+}
+#googleImage {
+    position: relative;
+    top:5px;
+}
+#bing {
+    color: cyan;
+}
+#bingImage {
+    position: relative;
+    top:5px;
+}
+#ask {
+    color: rgb(209, 26, 59);
+}
+#askImage {
+    position: relative;
+    top:5px;
+}
+body {
+    text-align: center;
+    margin-top: 25%;
+}
+/* form {
+    display: inline-block;
+} */
